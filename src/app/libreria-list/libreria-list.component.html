@@ -1,0 +1,36 @@
+<div class="principal">
+    <table class="lista">
+        <thead id="cabecera">
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Fecha de publicación</th>
+            <th>Stock</th>
+            <th>Descripción</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let libro of libros">
+                <td>{{ libro.cod }}</td>
+                <td>{{ libro.titulo }}</td>
+                <td>{{ libro.fechPubli }}</td>
+                <td>{{ libro.stock }}</td>
+                <td>{{ libro.descrip }}</td>
+                <td>
+                    <button mat-mini-fab color="primary" (click)="detail(libro.id)"><mat-icon>home</mat-icon></button>
+                </td>
+                <td>
+                    <button mat-mini-fab color="accent" (click)="delete(libro.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" class="formulario" [(ngModel)]="libro.cod"></td>
+                <td><input type=text class="formulario" [(ngModel)]="libro.titulo"></td>
+                <td><input type="date" class="formulario" [(ngModel)]="libro.fechPubli"></td>
+                <td><input type="number" class="formulario" [(ngModel)]="libro.stock"></td>
+                <td><input type=text class="formulario" [(ngModel)]="libro.descrip"></td>
+                <td><button mat-mini-fab color="accent" (click)="create()"><mat-icon>done</mat-icon></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
