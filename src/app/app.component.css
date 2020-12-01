@@ -1,4 +1,11 @@
 .container{
     width: 80vw;
     margin: 0 auto;
+    padding-top: 2rem;
+    padding: 5em;
+}
+#tituloApp{
+    font-family: 'Roboto Mono', monospace;
+    font-size: xx-large;
+    padding: 20px;
 }

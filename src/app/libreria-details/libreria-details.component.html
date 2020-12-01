@@ -1,0 +1,46 @@
+<!--<app-lista></app-lista>-->
+<div id="detalles">
+    <mat-card>
+        <mat-card-title id="titulo">Editor del libro {{libro.cod}}</mat-card-title>
+        <table id="lista">
+            <tbody>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <mat-label>Codigo</mat-label>
+                            <input matInput placeholder="Eje: 214" type="text" class="formulario" [(ngModel)]="libro.cod">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                            <mat-label>Titulo</mat-label>
+                            <input matInput placeholder="El diario de Noa" type="text" class="formulario" [(ngModel)]="libro.titulo">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                            <mat-label>Fecha Publicación</mat-label>
+                            <input matInput placeholder="Fecha Publi." type="date" class="formulario" [(ngModel)]="libro.fechPubli">
+                        </mat-form-field>    
+                    </td>
+                    <td>
+                        <mat-form-field>
+                            <mat-label>Stock</mat-label>
+                            <input matInput placeholder="10,15..." type="number" class="formulario" [(ngModel)]="libro.stock">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                            <mat-label>Descripción</mat-label>
+                            <input matInput placeholder="Novela romantica..." type=text class="formulario" [(ngModel)]="libro.descrip">
+                        </mat-form-field>
+                    </td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><button mat-mini-fab color="accent" (click)="update()"><mat-icon>done</mat-icon></button></td>
+                    <td><button mat-mini-fab color="warn" (click)="atras()" id="salir"><mat-icon>highlight_off</mat-icon></button></td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </mat-card>    
+</div>

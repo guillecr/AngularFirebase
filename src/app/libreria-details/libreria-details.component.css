@@ -1,0 +1,18 @@
+#detalles {
+    position: fixed;
+    top: 0;
+    left: 50;
+    width: 77.5vw;
+    margin-top: 15rem;
+    border: 2px solid rgb(184, 182, 182);
+  }
+
+#lista{
+    text-align: center;
+    margin: 0 auto;
+}
+#titulo{
+}
+#salir{
+  
+}

@@ -1,9 +1,10 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { Libro } from '../libro.model';
 import { LibreriaService } from '../libreria.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-libreria-list',
+  selector: 'app-lista',
   templateUrl: './libreria-list.component.html',
   styleUrls: ['./libreria-list.component.css']
 })
@@ -12,7 +13,9 @@ export class LibreriaListComponent implements OnInit {
   libros:Libro[];
   libro:Libro = new Libro;
 
-  constructor(private servicio : LibreriaService) { }
+  constructor(
+    private servicio : LibreriaService,
+    private router : Router) { }
 
   ngOnInit(): void {
     this.servicio.getLibros().subscribe(data => {
@@ -33,10 +36,7 @@ export class LibreriaListComponent implements OnInit {
     this.servicio.deleteLibro(id);
   }
   detail(id:string){
-    let librito;
-
-    librito = this.servicio.getLibroID(id).get().forEach;
-    console.log(librito);
+    this.router.navigate(['/details', id]); 
   }
 
 }

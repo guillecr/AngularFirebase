@@ -1,7 +1,7 @@
 <div class="principal">
     <table class="lista">
         <thead id="cabecera">
-            <th>ID</th>
+            <th>COD</th>
             <th>Titulo</th>
             <th>Fecha de publicación</th>
             <th>Stock</th>
@@ -15,20 +15,48 @@
                 <td>{{ libro.stock }}</td>
                 <td>{{ libro.descrip }}</td>
                 <td>
-                    <button mat-mini-fab color="primary" (click)="detail(libro.id)"><mat-icon>home</mat-icon></button>
-                </td>
-                <td>
-                    <button mat-mini-fab color="accent" (click)="delete(libro.id)">
-                        <mat-icon>delete</mat-icon>
-                    </button>
+                    <button mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+                    <mat-menu #menu='matMenu'>
+                        <button mat-menu-item (click)="detail(libro.id)">Editar</button>
+                        <button mat-menu-item (click)="delete(libro.id)">Borrar</button>
+                    </mat-menu>
                 </td>
             </tr>
+
+            <br>
+
+            <!-- Formulario -->
             <tr>
-                <td><input type="text" class="formulario" [(ngModel)]="libro.cod"></td>
-                <td><input type=text class="formulario" [(ngModel)]="libro.titulo"></td>
-                <td><input type="date" class="formulario" [(ngModel)]="libro.fechPubli"></td>
-                <td><input type="number" class="formulario" [(ngModel)]="libro.stock"></td>
-                <td><input type=text class="formulario" [(ngModel)]="libro.descrip"></td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Codigo</mat-label>
+                        <input matInput placeholder="Eje: 214" type="text" class="formulario" [(ngModel)]="libro.cod">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Titulo</mat-label>
+                        <input matInput placeholder="El diario de Noa" type="text" class="formulario" [(ngModel)]="libro.titulo">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Fecha Publicación</mat-label>
+                        <input matInput placeholder="Fecha Publi." type="date" class="formulario" [(ngModel)]="libro.fechPubli">
+                    </mat-form-field>    
+                </td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Stock</mat-label>
+                        <input matInput placeholder="10,15..." type="number" class="formulario" [(ngModel)]="libro.stock">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Descripción</mat-label>
+                        <input matInput placeholder="Novela romantica..." type=text class="formulario" [(ngModel)]="libro.descrip">
+                    </mat-form-field>
+                </td>
                 <td><button mat-mini-fab color="accent" (click)="create()"><mat-icon>done</mat-icon></button></td>
             </tr>
         </tbody>

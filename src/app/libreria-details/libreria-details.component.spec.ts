@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LibreriaAddComponent } from './libreria-add.component';
+import { LibreriaDetailsComponent } from './libreria-details.component';
 
-describe('LibreriaAddComponent', () => {
-  let component: LibreriaAddComponent;
-  let fixture: ComponentFixture<LibreriaAddComponent>;
+describe('LibreriaDetailsComponent', () => {
+  let component: LibreriaDetailsComponent;
+  let fixture: ComponentFixture<LibreriaDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LibreriaAddComponent ]
+      declarations: [ LibreriaDetailsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LibreriaAddComponent);
+    fixture = TestBed.createComponent(LibreriaDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

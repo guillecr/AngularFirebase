@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LibreriaListComponent } from './libreria-list/libreria-list.component';
-import { LibreriaAddComponent } from './libreria-add/libreria-add.component';
+import { LibreriaDetailsComponent } from './libreria-details/libreria-details.component';
 
 const routes: Routes = [
-  {path:'lista',component:LibreriaListComponent},
-  {path:'add',component:LibreriaAddComponent}
+  {path:'details/:id',component:LibreriaDetailsComponent}
 ];
 
 @NgModule({
