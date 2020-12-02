@@ -12,6 +12,7 @@ export class LibreriaListComponent implements OnInit {
 
   libros:Libro[];
   libro:Libro = new Libro;
+  columnsToDisplay = ['cod','titulo','fechPubli','stock','descrip','option'];
 
   constructor(
     private servicio : LibreriaService,
@@ -31,12 +32,10 @@ export class LibreriaListComponent implements OnInit {
   create(){
     this.servicio.addLibro(this.libro);
   }
-
   delete(id:string){
     this.servicio.deleteLibro(id);
   }
   detail(id:string){
     this.router.navigate(['/details', id]); 
   }
-
 }

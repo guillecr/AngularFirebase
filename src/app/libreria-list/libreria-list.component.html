@@ -1,64 +1,64 @@
 <div class="principal">
-    <table class="lista">
-        <thead id="cabecera">
-            <th>COD</th>
-            <th>Titulo</th>
-            <th>Fecha de publicación</th>
-            <th>Stock</th>
-            <th>Descripción</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let libro of libros">
-                <td>{{ libro.cod }}</td>
-                <td>{{ libro.titulo }}</td>
-                <td>{{ libro.fechPubli }}</td>
-                <td>{{ libro.stock }}</td>
-                <td>{{ libro.descrip }}</td>
-                <td>
-                    <button mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
-                    <mat-menu #menu='matMenu'>
-                        <button mat-menu-item (click)="detail(libro.id)">Editar</button>
-                        <button mat-menu-item (click)="delete(libro.id)">Borrar</button>
-                    </mat-menu>
-                </td>
-            </tr>
+    <table  mat-table [dataSource]="libros" class="lista">
 
-            <br>
+        <ng-container matColumnDef="cod">
+            <th mat-header-cell *matHeaderCellDef> Code. </th>
+            <td mat-cell *matCellDef="let libro"> {{libro.cod}} </td>
+        </ng-container>
+        <ng-container matColumnDef="titulo">
+            <th mat-header-cell *matHeaderCellDef> Titulo </th>
+            <td mat-cell *matCellDef="let libro"> {{libro.titulo}} </td>
+        </ng-container>
+        <ng-container matColumnDef="fechPubli">
+            <th mat-header-cell *matHeaderCellDef> Fecha Publi. </th>
+            <td mat-cell *matCellDef="let libro"> {{libro.fechPubli}} </td>
+        </ng-container>
+        <ng-container matColumnDef="stock">
+            <th mat-header-cell *matHeaderCellDef> Stock </th>
+            <td mat-cell *matCellDef="let libro"> {{libro.stock}} </td>
+        </ng-container>
+        <ng-container matColumnDef="descrip">
+            <th mat-header-cell *matHeaderCellDef> Descripción </th>
+            <td mat-cell *matCellDef="let libro"> {{libro.descrip}} </td>
+        </ng-container>
 
-            <!-- Formulario -->
-            <tr>
-                <td>
-                    <mat-form-field>
-                        <mat-label>Codigo</mat-label>
-                        <input matInput placeholder="Eje: 214" type="text" class="formulario" [(ngModel)]="libro.cod">
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field>
-                        <mat-label>Titulo</mat-label>
-                        <input matInput placeholder="El diario de Noa" type="text" class="formulario" [(ngModel)]="libro.titulo">
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field>
-                        <mat-label>Fecha Publicación</mat-label>
-                        <input matInput placeholder="Fecha Publi." type="date" class="formulario" [(ngModel)]="libro.fechPubli">
-                    </mat-form-field>    
-                </td>
-                <td>
-                    <mat-form-field>
-                        <mat-label>Stock</mat-label>
-                        <input matInput placeholder="10,15..." type="number" class="formulario" [(ngModel)]="libro.stock">
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field>
-                        <mat-label>Descripción</mat-label>
-                        <input matInput placeholder="Novela romantica..." type=text class="formulario" [(ngModel)]="libro.descrip">
-                    </mat-form-field>
-                </td>
-                <td><button mat-mini-fab color="accent" (click)="create()"><mat-icon>done</mat-icon></button></td>
-            </tr>
-        </tbody>
+        <ng-container matColumnDef="option">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let libro" >
+                <button mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+                <mat-menu #menu='matMenu'>
+                    <button mat-menu-item (click)="detail(libro.id)">Editar</button>
+                    <button mat-menu-item (click)="delete(libro.id)">Borrar</button>
+                </mat-menu>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
     </table>
+
+    <div id="formulario">
+        <mat-form-field>
+            <mat-label>Codigo</mat-label>
+            <input matInput placeholder="Eje: 214" type="text" class="formulario" [(ngModel)]="libro.cod">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Titulo</mat-label>
+            <input matInput placeholder="El diario de Noa" type="text" class="formulario" [(ngModel)]="libro.titulo">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Fecha Publicación</mat-label>
+            <input matInput placeholder="Fecha Publi." type="date" class="formulario" [(ngModel)]="libro.fechPubli">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Stock</mat-label>
+            <input matInput placeholder="10,15..." type="number" class="formulario" [(ngModel)]="libro.stock">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Descripción</mat-label>
+            <input matInput placeholder="Novela romantica..." type=text class="formulario" [(ngModel)]="libro.descrip">
+        </mat-form-field>
+        <button style="margin-left: 10px;" mat-mini-fab color="accent" (click)="create()"><mat-icon>done</mat-icon></button>
+    </div>
+
 </div>

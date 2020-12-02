@@ -4,6 +4,5 @@ export class Libro {
     titulo:string;
     fechPubli:Date;
     stock:number;
-    //img:string;
     descrip:string;
 }

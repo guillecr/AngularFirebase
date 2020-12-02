@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -37,6 +38,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatCardModule,
     MatInputModule,
     MatMenuModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

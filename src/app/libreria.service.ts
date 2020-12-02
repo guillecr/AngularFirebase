@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Libro } from './libro.model';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +8,6 @@ import { Observable } from 'rxjs';
 export class LibreriaService {
 
   private coleccion = 'libreria';
-  private libros:Libro[];
-  private libro:Libro;
 
   constructor(private firestore : AngularFirestore) { }
 
